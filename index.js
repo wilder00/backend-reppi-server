@@ -1,17 +1,16 @@
-const http = require('http')
+const express = require('express')
+const app = express()
 
-const server = http.createServer((req, res)=>{
-  res.setHeader('Content-Disposition', 'attachment; filename=list.csv')
-  res.writeHead(200,{'content-type':'application/csv'})
-  
-  res.write('id,nombre\n')
-  res.write('1,Maria\n')
-  res.write('2,Renata\n')
-  res.write('3,Fernanda\n')
-  res.end()
+app.get('/', (req, res) => {
+  res.send('Home pge')
 })
 
-server.listen(8080)
+app.get('/api/', (req, res) => {
+  res.send('Tu api')
+})
 
-console.log('Escuchando en el puerto 8080');
+app.get('*', (req, res) => {
+  res.send('Page not found')
+})
 
+app.listen(8080)
