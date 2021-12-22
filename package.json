@@ -1,0 +1,11 @@
+{
+  "name": "reppi_server",
+  "version": "1.0.0",
+  "description": "Creando un servidor para una app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wilder Trujillo",
+  "license": "MIT"
+}
