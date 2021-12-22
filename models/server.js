@@ -1,4 +1,6 @@
 const express = require('express');
+const cors = require('cors');
+
 class Server{
 
   constructor(){
@@ -13,6 +15,8 @@ class Server{
   }
 
   middlewares(){
+    this.app.use(cors());
+
     //use es la palabra clave para decir que es un middleware
     this.app.use(express.static('public'));
   }
