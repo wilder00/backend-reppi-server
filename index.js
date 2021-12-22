@@ -1,16 +1,20 @@
-const http = require('http')
+require('dotenv').config();
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 3000
 
-const server = http.createServer((req, res)=>{
-  res.writeHead(200,{'content-type':'text/plain'})
-  const persona = {
-    id: 1,
-    nombre: 'Fernando '
-  }
-  res.write(JSON.stringify(persona))
-  res.end()
+app.get('/', (req, res) => {
+  res.send('Home page')
 })
 
-server.listen(8080)
+app.get('/api/', (req, res) => {
+  res.send('Tu api')
+})
 
-console.log('Escuchando en el puerto 8080');
+app.get('*', (req, res) => {
+  res.send('Page not found')
+})
 
+app.listen(port, ()=> {
+  console.log(`listening on http://localhost:${port}`);
+})
