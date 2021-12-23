@@ -8,7 +8,7 @@ const { getUsers,
 
 const router = Router();
 
-router.get('/', getUsers);
+router.get('/',  getUsers);
 router.post('/', postUsers)
 router.put('/', putUsers)
 router.patch('/', patchUsers);
