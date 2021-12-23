@@ -1,10 +1,11 @@
 const express = require('express');
 const cors = require('cors');
+const { environment } = require('../config/config')
 
 class Server{
 
   constructor(){
-    this.port = process.env.PORT || 3000
+    this.port = environment.port
     this.app = express();
     this.usuariosPath = '/api/users';
 
