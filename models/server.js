@@ -7,7 +7,8 @@ class Server{
   constructor(){
     this.port = environment.port
     this.app = express();
-    this.usuariosPath = '/api/users';
+    this.usersApiPath = '/api/users';
+    this.servicesApiPath = '/api/services';
 
     //middlewares aquí
     this.middlewares();
@@ -26,7 +27,8 @@ class Server{
 
   routes(){
     //cargando por middleware una ruta
-    this.app.use(this.usuariosPath, require('../routes/users.route'))
+    this.app.use(this.usersApiPath, require('../routes/users.route'))
+    this.app.use(this.servicesApiPath, require('../routes/services.route'))
   }
 
   listen(){
